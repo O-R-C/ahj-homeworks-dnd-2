@@ -1,21 +1,10 @@
-::-webkit-scrollbar {
-  width: 0.5rem;
-}
-::-webkit-scrollbar-track {
-  background: #1079ba;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 0.815rem;
-  background-color: #505050;
-}
-
 * {
   box-sizing: border-box;
 }
 
 html {
   font-size: 16px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 body {
@@ -23,29 +12,4 @@ body {
   position: relative;
   margin: 0;
   padding: 0;
-}
-
-.wrapper {
-  padding: 20px;
-
-  border-radius: 5px;
-  border: 2px solid gray;
-  box-shadow: 1px 1px 5px 2px rgba(205, 205, 205, 0.75);
-
-  box-sizing: border-box;
-}
-
-body .dragged {
-  position: absolute;
-  z-index: 9999;
-
-  cursor: grabbing;
-  opacity: 0.3;
-  transform: rotate(-3deg);
-
-  pointer-events: none;
-}
-
-.grabbing {
-  cursor: grabbing !important;
 }
