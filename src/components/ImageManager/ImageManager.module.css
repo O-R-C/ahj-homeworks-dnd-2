@@ -1,8 +1,30 @@
+@value values: '@/css/variables.module.css';
+@value colorSecondary, padding, border, radius, shadow from values;
+
 .app {
+  width: 800px;
+  padding: 20px;
+  margin-inline: auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  gap: 20px;
+}
+
+.images-container {
   width: 100%;
+  padding: padding;
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: border;
+  border-radius: calc(radius * 2);
+  box-shadow: shadow;
 }

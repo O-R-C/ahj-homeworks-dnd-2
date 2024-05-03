@@ -29,6 +29,10 @@
 .drop {
   outline: 2px dashed colorSecondary;
   outline-offset: -20px;
+
+  cursor: auto;
+
+  transition: outline-offset 0.2s ease-in-out;
 }
 
 .warning {
@@ -40,4 +44,5 @@
   width: 70%;
   text-align: center;
   user-select: none;
+  pointer-events: none;
 }

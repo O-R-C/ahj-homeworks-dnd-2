@@ -1,7 +1,9 @@
 import ImageManagerUI from './ImageManagerUI'
+import ImagesStorage from '@/js/Classes/ImagesStorage'
 
 export default class ImageManager {
   #ui = new ImageManagerUI()
+  #imagesStorage = new ImagesStorage()
   #app = this.#ui.app
   #element
   constructor(element) {

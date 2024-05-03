@@ -18,9 +18,10 @@ export default class ImageManagerUI {
 
   get app() {
     const app = getElement({ tag: 'div', classes: styles.app })
+    const imagesContainer = getElement({ tag: 'div', classes: styles.imagesContainer, id: 'images-container' })
     const dropZone = getDropZone(styles.dropZone)
 
-    app.append(dropZone)
+    app.append(dropZone, imagesContainer)
     return app
   }
 }

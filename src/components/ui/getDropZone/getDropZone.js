@@ -36,6 +36,8 @@ export const getDropZone = (classes) => {
 
 /**
  * Prevents the default behavior of the onDrop event.
+ * Checks if the dropped file is an image and dispatches the dropImage event with the selected file.
+ * @event dropImage
  *
  * @param {Event} event - The onDrop event object.
  * @return {void} This function does not return a value.
@@ -52,7 +54,7 @@ const onDrop = (event) => {
     return
   }
 
-  document.body.dispatchEvent(new CustomEvent('dropImage', { detail: file }))
+  fireEvent(file)
 }
 
 /**
@@ -88,6 +90,8 @@ const onDragend = (event) => {
 
 /**
  * Handles the change event of the input file element.
+ * Checks if the selected file is an image and dispatches the dropImage event with the selected file.
+ * @event dropImage
  *
  * @param {Event} event - The change event object.
  * @return {void} This function does not return a value.
@@ -100,7 +104,7 @@ const onInputFileChange = (event) => {
     return
   }
 
-  document.body.dispatchEvent(new CustomEvent('dropImage', { detail: event.target.files[0] }))
+  fireEvent(file)
 }
 
 /**
@@ -124,6 +128,26 @@ const showWarning = (element) => {
   setTimeout(() => {
     element.classList.remove(styles.warning)
   }, 200)
+}
+
+/**
+ * Creates a new CustomEvent with the name 'dropImage' and a detail property containing the given file.
+ *
+ * @param {File} file - The file object to be included in the event detail.
+ * @return {CustomEvent} A new CustomEvent object with the name 'dropImage' and a detail property containing the given file.
+ */
+const getEventDropImage = (file) => {
+  return new CustomEvent('dropImage', { detail: file })
+}
+
+/**
+ * Dispatches a custom event named 'dropImage' with the given file as the detail.
+ *
+ * @param {File} file - The file object to be included in the event detail.
+ * @return {void} This function does not return a value.
+ */
+const fireEvent = (file) => {
+  document.dispatchEvent(getEventDropImage(file))
 }
 
 export default getDropZone
