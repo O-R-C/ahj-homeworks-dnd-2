@@ -2,7 +2,7 @@
 @value colorSecondary, padding, border, radius, shadow from values;
 
 .app {
-  width: 800px;
+  width: 1000px;
   padding: 20px;
   margin-inline: auto;
 
@@ -14,17 +14,4 @@
 }
 
 .images-container {
-  width: 100%;
-  padding: padding;
-  min-height: 150px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  border: border;
-  border-radius: calc(radius * 2);
-  box-shadow: shadow;
 }

@@ -1,5 +1,6 @@
 import getElement from '@/js/getElement'
 import imagesItem from '../imagesItem/imagesItem'
+
 import styles from './imagesContainer.module.css'
 
 export const imagesContainer = (classes) => {

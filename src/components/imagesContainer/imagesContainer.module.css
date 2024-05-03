@@ -1,0 +1,20 @@
+@value values: '@/css/variables.module.css';
+@value colorSecondary, padding, border, radius, shadow from values;
+
+.images-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: calc(padding * 2);
+  min-height: 150px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  /* display: flex;
+  flex-wrap: wrap; */
+  gap: calc(padding * 2);
+
+  border: border;
+  border-radius: calc(radius * 2);
+  box-shadow: shadow;
+}

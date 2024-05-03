@@ -9,7 +9,6 @@ import imagesItem from '@/js/Classes/imagesItem'
 export default class ImagesStorage {
   #storage = []
   #currentImageName
-  #currentImageUrl
 
   /**
    * Initializes the class by calling the init method.
@@ -36,7 +35,8 @@ export default class ImagesStorage {
    * @return {void} This function does not return a value.
    */
   #addListeners() {
-    document.addEventListener('dropImage', this.#saveImages)
+    document.addEventListener('dropImage', this.#saveImage)
+    document.addEventListener('deleteImage', this.#deleteImage)
   }
 
   /**
@@ -47,7 +47,7 @@ export default class ImagesStorage {
    * @param {Event} event - The dropImage event object.
    * @return {void} This function does not return a value.
    */
-  #saveImages = (event) => {
+  #saveImage = (event) => {
     const file = event.detail
     this.#currentImageName = file.name
 
@@ -66,6 +66,7 @@ export default class ImagesStorage {
     const url = event.target.result
     const name = this.#currentImageName
     const image = new imagesItem({ name, url })
+
     this.#storage.push(image)
     this.#fireEvent(image)
     console.log('🚀 ~ this.#storage:', this.#storage)
@@ -96,5 +97,11 @@ export default class ImagesStorage {
    */
   #fireEvent(image) {
     document.dispatchEvent(this.#getCustomEvent(image))
+  }
+
+  #deleteImage = (event) => {
+    const id = event.detail
+    this.#storage = this.#storage.filter((image) => image.id !== id)
+    console.log('🚀 ~ this.#storage:', this.#storage)
   }
 }
