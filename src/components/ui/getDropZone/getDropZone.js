@@ -30,9 +30,6 @@ export const getDropZone = (classes) => {
   // Add a change event listener for the input file
   inputFile.addEventListener('change', onInputFileChange)
 
-  // Add a dropImage event listener to the document body
-  document.body.addEventListener('dropImage', (event) => {})
-
   // Return the created drop zone element
   return dropZone
 }
