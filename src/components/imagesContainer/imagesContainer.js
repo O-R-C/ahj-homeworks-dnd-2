@@ -1,14 +1,15 @@
 import getElement from '@/js/getElement'
+import imagesItem from '../imagesItem/imagesItem'
 import styles from './imagesContainer.module.css'
 
 export const imagesContainer = (classes) => {
   const imagesContainer = getElement({ tag: 'div', classes: [styles.imagesContainer, classes] })
 
-  return imagesContainer
-}
+  document.addEventListener('showImage', (e) => {
+    imagesContainer.append(imagesItem(e.detail))
+  })
 
-const onDropImage = (event) => {
-  event.preventDefault()
+  return imagesContainer
 }
 
 export default imagesContainer
