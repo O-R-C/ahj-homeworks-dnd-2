@@ -15,6 +15,12 @@ export default class DropZoneUI {
     return element
   }
 
+  /**
+   * Retrieves the application element with specific classes and child elements.
+   *
+   * @param {string|string[]} classes - description of classes parameter
+   * @return {HTMLElement} The created application element
+   */
   getApp(classes) {
     const app = getElement({ tag: 'div', classes: [styles.dropZone, classes] })
     const inputFile = getElement({ tag: 'input', type: 'file', accept: 'image/*', hidden: true })
@@ -29,14 +35,32 @@ export default class DropZoneUI {
     return app
   }
 
+  /**
+   * Adds the 'drop' class to the specified element.
+   *
+   * @param {HTMLElement} element - The element to add the 'drop' class to.
+   * @return {void} This function does not return a value.
+   */
   addDropClass(element) {
     element.classList.add(styles.drop)
   }
 
+  /**
+   * Removes the 'drop' class from the given element.
+   *
+   * @param {HTMLElement} element - The element from which to remove the 'drop' class.
+   * @return {void} This function does not return a value.
+   */
   removeDropClass(element) {
     element.classList.remove(styles.drop)
   }
 
+  /**
+   * Adds a warning class to the given element and removes it after a 200ms delay.
+   *
+   * @param {HTMLElement} element - The element to apply the warning class to.
+   * @return {void} This function does not return a value.
+   */
   showWarning(element) {
     element.classList.add(styles.warning)
     setTimeout(() => element.classList.remove(styles.warning), 200)
