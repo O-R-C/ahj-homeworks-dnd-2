@@ -35,6 +35,6 @@ export default class ImageManagerUI {
   }
 
   #addDropZone(element) {
-    new DropZone(element, styles.dropZone)
+    new DropZone(element)
   }
 }

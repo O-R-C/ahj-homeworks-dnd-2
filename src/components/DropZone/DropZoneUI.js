@@ -21,8 +21,8 @@ export default class DropZoneUI {
    * @param {string|string[]} classes - description of classes parameter
    * @return {HTMLElement} The created application element
    */
-  getApp(classes) {
-    const app = getElement({ tag: 'div', classes: [styles.dropZone, classes] })
+  get app() {
+    const app = getElement({ tag: 'div', classes: styles.dropZone })
     const inputFile = getElement({ tag: 'input', type: 'file', accept: 'image/*', hidden: true })
     const topElement = getElement({
       tag: 'div',

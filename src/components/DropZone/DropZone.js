@@ -18,7 +18,7 @@ export default class DropZone {
    * @type {HTMLElement}
    * @private
    */
-  #app
+  #app = this.#ui.app
 
   /**
    * The element being initialized as a drop zone.
@@ -38,11 +38,9 @@ export default class DropZone {
    * Constructs a new DropZone instance.
    *
    * @param {string|HTMLElement} element - The element to be initialized as a drop zone.
-   * @param {string} [classes=''] - The classes to apply to the main application element.
    */
-  constructor(element, classes = '') {
+  constructor(element) {
     this.#element = this.#ui.getElement(element)
-    this.#app = this.#ui.getApp(classes)
 
     this.#init()
   }
