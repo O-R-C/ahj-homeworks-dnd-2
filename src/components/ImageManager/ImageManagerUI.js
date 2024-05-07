@@ -1,8 +1,8 @@
 import getElement from '@/js/getElement'
-import styles from './ImageManager.module.css'
-import getDropZone from '../ui/getDropZone/getDropZone'
-import imagesContainer from '../imagesContainer/imagesContainer'
 import DropZone from '../DropZone/DropZone'
+import imagesContainer from '../imagesContainer/imagesContainer'
+
+import styles from './ImageManager.module.css'
 
 export default class ImageManagerUI {
   /**
