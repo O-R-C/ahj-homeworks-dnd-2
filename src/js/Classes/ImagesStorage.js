@@ -1,6 +1,6 @@
+import ImagesItem from './ImagesItem'
 import StorageArray from './StorageArray'
 import LocalStorage from './LocalStorage'
-import ImagesItem from './ImagesItem'
 
 /**
  * Class representing a storage for images.
@@ -8,38 +8,28 @@ import ImagesItem from './ImagesItem'
  */
 export default class ImagesStorage extends StorageArray {
   /**
-   * The local storage.
-   * @type {LocalStorage}
-   * @private
-   */
-  #local
-
-  /**
-   * The storage array.
-   * @type {Array}
-   * @private
-   */
-  #storage
-
-  /**
    * Constructs a new ImagesStorage.
    *
    * @param {string} key - The key for local storage.
    */
   constructor(key) {
     super(ImagesItem)
-    this.#local = new LocalStorage(key)
-    this.#storage = this.#local.restore()
+    this.local = new LocalStorage(key)
+    this.storage = this.local.restore()
   }
 
   /**
    * Saves an image to the storage.
    *
    * @param {Object} image - The image to save.
+   * @param {string} image.name - The name of the image.
+   * @param {string} image.url - The URL of the image.
+   * @param {string} [image.id] - The ID of the image. If not provided,
+   * a UUID will be generated.
    */
   saveImage(image) {
     this.saveItem(image)
-    this.#local.backup(this.#storage)
+    this.local.backup(this.images)
   }
 
   /**
@@ -49,7 +39,7 @@ export default class ImagesStorage extends StorageArray {
    */
   deleteImageById(id) {
     this.deleteItemById(id)
-    this.#local.backup(this.#storage)
+    this.local.backup(this.images)
   }
 
   /**
@@ -59,5 +49,14 @@ export default class ImagesStorage extends StorageArray {
    */
   get images() {
     return this.items
+  }
+
+  /**
+   * Get the last image from the images array.
+   *
+   * @return {Object} The last image object from the images array.
+   */
+  get lastImage() {
+    return this.images.at(-1)
   }
 }

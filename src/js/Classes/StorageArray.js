@@ -5,13 +5,6 @@
  */
 export default class StorageArray {
   /**
-   * The storage array.
-   * @private
-   * @type {Array}
-   */
-  #storage = []
-
-  /**
    * Constructs a new StorageArray.
    *
    * @constructor
@@ -31,7 +24,7 @@ export default class StorageArray {
    * @param {Object} item - The item to save.
    */
   saveItem(item) {
-    this.#storage.push(new this.item(item))
+    this.storage.push(new this.item(item))
   }
 
   /**
@@ -40,7 +33,7 @@ export default class StorageArray {
    * @param {string} id - The id of the item to delete.
    */
   deleteItemById(id) {
-    this.#storage = this.#storage.filter((item) => item.id !== id)
+    this.storage = this.storage.filter((item) => item.id !== id)
   }
 
   /**
@@ -49,6 +42,6 @@ export default class StorageArray {
    * @return {Array} The items in the storage array.
    */
   get items() {
-    return this.#storage
+    return this.storage
   }
 }
