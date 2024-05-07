@@ -29,7 +29,8 @@ export default class ImagesStorage extends StorageArray {
    */
   saveImage(image) {
     this.saveItem(image)
-    this.local.backup(this.images)
+    console.log('🚀 ~ this.images:', this.images)
+    // this.local.backup(this.images)
   }
 
   /**
@@ -39,7 +40,7 @@ export default class ImagesStorage extends StorageArray {
    */
   deleteImageById(id) {
     this.deleteItemById(id)
-    this.local.backup(this.images)
+    // this.local.backup(this.images)
   }
 
   /**
