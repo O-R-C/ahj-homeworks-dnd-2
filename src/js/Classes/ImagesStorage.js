@@ -1,6 +1,5 @@
 import StorageArray from './StorageArray'
 import LocalStorage from './LocalStorage'
-import ImagesItem from './ImagesItem'
 
 export default class ImagesStorage {
   #key = 'imagesArray'
