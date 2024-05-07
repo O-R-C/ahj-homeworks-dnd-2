@@ -22,4 +22,11 @@ export default class ImageManager {
   #bindToDom() {
     this.#element.append(this.#app)
   }
+
+  #addElements() {}
+
+  #addEventListeners() {
+    // this.#app.addEventListener('dropImage', this.#onDropImage)
+    // this.#app.addEventListener('deleteImage', this.#onDeleteImage)
+  }
 }

@@ -2,6 +2,7 @@ import getElement from '@/js/getElement'
 import styles from './ImageManager.module.css'
 import getDropZone from '../ui/getDropZone/getDropZone'
 import imagesContainer from '../imagesContainer/imagesContainer'
+import DropZone from '../DropZone/DropZone'
 
 export default class ImageManagerUI {
   /**
@@ -19,11 +20,21 @@ export default class ImageManagerUI {
 
   get app() {
     const app = getElement({ tag: 'div', classes: styles.app })
+    const dropZoneContainer = getElement({ tag: 'div', classes: styles.dropZoneContainer })
+
+    // const imagesContainer = getElement({ tag: 'div', classes: styles.imagesContainer })
     const imagesContainerElement = imagesContainer(styles.imagesContainer)
     // const imagesContainer = getElement({ tag: 'div', classes: styles.imagesContainer, id: 'images-container' })
-    const dropZone = getDropZone(styles.dropZone)
+    // const dropZone = getDropZone(styles.dropZone)
 
-    app.append(dropZone, imagesContainerElement)
+    this.#addDropZone(dropZoneContainer)
+
+    app.append(dropZoneContainer, imagesContainerElement)
+
     return app
+  }
+
+  #addDropZone(element) {
+    new DropZone(element, styles.dropZone)
   }
 }

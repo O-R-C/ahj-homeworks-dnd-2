@@ -12,6 +12,8 @@
 
   border: border;
   border-radius: calc(radius * 2);
+  outline: 2px dashed transparent;
+  outline-offset: -2px;
 
   cursor: pointer;
 
@@ -20,8 +22,6 @@
   font-weight: bold;
 
   box-shadow: shadow;
-  outline: 2px dashed transparent;
-  outline-offset: -2px;
 }
 
 .drop-zone:hover {
