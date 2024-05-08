@@ -28,7 +28,7 @@ export default class ImagesStorage extends StorageArray {
    * a UUID will be generated.
    */
   saveImage(image) {
-    this.saveItem(image)
+    super.saveItem(image)
     console.log('🚀 ~ this.images:', this.images)
     // this.local.backup(this.images)
   }
@@ -39,7 +39,7 @@ export default class ImagesStorage extends StorageArray {
    * @param {string} id - The id of the image to delete.
    */
   deleteImageById(id) {
-    this.deleteItemById(id)
+    super.deleteItemById(id)
     // this.local.backup(this.images)
   }
 
@@ -49,7 +49,7 @@ export default class ImagesStorage extends StorageArray {
    * @return {Array} The images in the storage.
    */
   get images() {
-    return this.items
+    return super.items
   }
 
   /**
