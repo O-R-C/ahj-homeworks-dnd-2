@@ -29,7 +29,6 @@ export default class ImagesStorage extends StorageArray {
    */
   saveImage(image) {
     super.saveItem(image)
-    console.log('🚀 ~ this.images:', this.images)
     // this.local.backup(this.images)
   }
 
