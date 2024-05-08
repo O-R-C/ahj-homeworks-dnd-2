@@ -1,5 +1,6 @@
 @value values: '@/css/variables.module.css';
 @value colorSecondary, padding, border, radius, shadow from values;
+@value width: 30px;
 
 .image-item {
   position: relative;
@@ -16,11 +17,15 @@
 
 .btn-delete {
   position: absolute;
-  top: calc(0px - padding);
-  right: calc(0px - padding);
+  top: calc(20px - width);
+  right: calc(20px - width);
 
-  width: 26px;
-  padding: calc(padding / 2);
+  width: width;
+  height: width;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border: 1px solid black;
   border-radius: 50%;
@@ -31,7 +36,6 @@
   color: red;
   font-size: 16px;
   font-weight: bold;
-  text-align: center;
 }
 
 .image-item:hover .btn-delete {
