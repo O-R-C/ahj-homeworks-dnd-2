@@ -1,11 +1,16 @@
 import StorageArray from '../Classes/StorageArray'
-import ImagesItem from '../Classes/ImagesItem'
+
+class Item {
+  constructor(item) {
+    this.id = item.id
+  }
+}
 
 describe('StorageArray', () => {
   let storageArray
 
   beforeEach(() => {
-    storageArray = new StorageArray(ImagesItem)
+    storageArray = new StorageArray(Item)
     storageArray.storage = []
   })
 
