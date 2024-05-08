@@ -54,7 +54,7 @@ export default class ImageGalleryUI {
    * @return {void}
    */
   removeImage(btnDelete) {
-    const image = btnDelete.closest(`[class^="${styles.imageItem}"]`)
+    const image = btnDelete.closest(`[class^="image-item"]`)
     image.remove()
   }
 }
